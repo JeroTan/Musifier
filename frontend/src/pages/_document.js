@@ -1,13 +1,20 @@
 import { Html, Head, Main, NextScript } from 'next/document'
 
+/// Components
+import HeadTagDef from '@/components/HeadTagDef'
+
 export default function Document() {
-  return (
+  return <>
     <Html lang="en">
-      <Head />
+      <Head>
+        <HeadTagDef />
+      </Head>
       <body>
         <Main />
         <NextScript />
       </body>
     </Html>
-  )
+  </>
+    
+  
 }
