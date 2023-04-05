@@ -1,0 +1,22 @@
+.light{
+    @apply bg-blue-900;
+}
+
+.select:hover > .light {
+    @apply bg-sky-500;
+}
+
+
+.SlideDown {
+	animation: SlideDown 0.2s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+}
+
+@keyframes SlideDown {
+    0% {
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+    100% {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+  }
+  
