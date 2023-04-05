@@ -47,6 +47,9 @@ export default (props)=>{
         case 'wallet':
             returner = <svg xmlns="http://www.w3.org/2000/svg" width={`100%`} height={`100%`} viewBox="0 0 24 24"><path className={tailwindClass} d="M10 16V8a2 2 0 0 1 2-2h9V5c0-1.1-.9-2-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2v-1h-9a2 2 0 0 1-2-2zm3-8c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h9V8h-9zm3 5.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5s1.5.67 1.5 1.5s-.67 1.5-1.5 1.5z"></path></svg>
         break;
+        case 'natural_note':
+            returner = <svg xmlns="http://www.w3.org/2000/svg" width={`100%`} height={`100%`} viewBox="0 0 24 24"><path className={tailwindClass} d="M10 8.75V3.5H8v14l6-2.25v5.25h2v-14l-6 2.25m4 4.5l-4 1.5v-4l4-1.5v4Z"></path></svg>
+        break;
         case 'paypal':
             returner = <svg xmlns="http://www.w3.org/2000/svg" width={`100%`} height={`100%`} viewBox="0 0 24 24"><path className={tailwindClass} d="M9.93 12.99c.1 0 2.42.1 3.8-.24h.01c1.59-.39 3.8-1.51 4.37-5.17c0 0 1.27-4.58-5.03-4.58H7.67c-.49 0-.91.36-.99.84L4.38 18.4c-.05.3.19.58.49.58H8.3l.84-5.32c.06-.38.39-.67.79-.67z"></path><path fill="currentColor" d="M18.99 8.29c-.81 3.73-3.36 5.7-7.42 5.7H10.1l-1.03 6.52c-.04.26.16.49.42.49h1.9c.34 0 .64-.25.69-.59c.08-.4.52-3.32.61-3.82c.05-.34.35-.59.69-.59h.44c2.82 0 5.03-1.15 5.68-4.46c.26-1.34.12-2.44-.51-3.25z"></path></svg>
         case 'credit_card':

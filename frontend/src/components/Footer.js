@@ -6,7 +6,7 @@ export default () => {
     const [ creatorLoadmore, creatorLoadmoreSet ] = useState(false);
     return <>
     <footer className="w-full flex justify-center sm:px-10 px-5 pt-10 pb-8 bg-gray-900 text-slate-300">
-        <main className="w-[100rem] flex flex-wrap gap-10">
+        <main className="w-[70rem] flex flex-wrap gap-10">
             <section className="flex-1 flex sm:flex-nowrap flex-wrap gap-x-10 mb-5">
                 <div className="flex-0 sm:w-auto w-full flex justify-center">
                     <div className="relative w-[10rem] aspect-square">
@@ -14,7 +14,7 @@ export default () => {
                     </div>
                 </div>
                 <div className="flex-1 sm:pt-0 pt-5">
-                    <h1 className="text-2xl font-semibold tracking-tighter pb-5 text-center">Creator</h1>
+                    <h1 className="text-2xl font-semibold tracking-tighter pb-5 sm:text-left text-center">Creator</h1>
                     <p className="text-justify font-light">Learning a new instrument is quite a long journey. When I was learning how to play a guitar, along the way I needed to study music theory too. At first it is kind of easy as there are only{creatorLoadmore ?<> notes, tones, pitches and other terminologies. However, time comes that music becomes literally a mathematics, that's metaphorical but I like to call it that way because of how everything is related and relative to numbers like the binary system of computers. Then it got me thinking to find an app to help me learn the scale and fretboard and it turns out that most app are non-existent or an app needs a premium purchased or there is too much information to start with. So I kinda like maybe I make a new one that suits to my needs. Afterward, I created a web-application, Musifier (YES! I refuse to just use paper and pencil in learning Music Theory). It is actually not a bad thing for me, because I was also able to learn Next.JS and Laravel. It is quite tedious but It is a three birds in one bullet. </>:<>... </>} <a href="#" className="underline underline-offset-2 font-normal" onClick={()=>{creatorLoadmoreSet(prev=>!prev)}}>Load {creatorLoadmore?'less':'more'}</a></p>
                 </div>
             </section>
