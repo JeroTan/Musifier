@@ -1,0 +1,14 @@
+
+<IfModule mod_rewrite.c>
+	RewriteEngine on
+	RewriteCond %{HTTP_HOST} ^localhost/musifier$
+	RewriteCond %{REQUEST_URI} !^/backend/public/
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule ^(.*)$ /backend/public/$1
+	RewriteRule ^(/)?$ /backend/public/index.php [L]
+</IfModule>
+
+<IfModule !mod_rewrite.c>
+  ErrorDocument 404 /index.php
+</IfModule>

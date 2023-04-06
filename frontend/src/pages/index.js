@@ -1,14 +1,25 @@
 //import Head from 'next/head'
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
-import { Inter } from 'next/font/google'
+import { Inter } from 'next/font/google';
+
 //import styles from '@/styles/Home.module.css'
 
 /// Utilities 
 import Icon from '@/utilities/Icon'
-
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+  const [testData, testDataSet] = useState([]);
+
+  useEffect(() => {
+    fetch('/api/test')
+      .then((response) => response.json())
+      .then((data) => testDataSet(data.data))
+      .catch((error) => console.log('Error retrieving data', error));
+  }, []);
+  console.log(testData);
+
   return <>
     <main className='relative w-full text-slate-200'>
       {/*page 1*/}

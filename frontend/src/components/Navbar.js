@@ -14,7 +14,7 @@ export default () => {
     // populate - Navbar Selection
     const selectionContent = {
         instrument:<>
-            <Link className={`${myStyle.select} cursor-pointer flex flex-row mb-2`} href={`/`}>
+            <Link className={`${myStyle.select} cursor-pointer flex flex-row mb-2`} href={`/electric_guitar`}>
                 <div className={`${myStyle.light} w-1 h-[5px]"`}></div>
                 <span className="ml-1">Electric Guitar</span>
             </Link>
