@@ -110,24 +110,24 @@ export default (props)=>{
             returner = <svg xmlns="http://www.w3.org/2000/svg" width={`100%`} height={`100%`} viewBox="0 0 24 24"><path className={tailwindClass} d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5s5 2.24 5 5s-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3s3-1.34 3-3s-1.34-3-3-3z"></path></svg>
         break;
         case 'donut1':
-            returner = <svg width={100*size} height={100*size} viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg" > <path d="M500 250C500 388.071 388.071 500 250 500C111.929 500 0 388.071 0 250C0 111.929 111.929 0 250 0C388.071 0 500 111.929 500 250ZM114.272 250C114.272 324.961 175.039 385.728 250 385.728C324.961 385.728 385.728 324.961 385.728 250C385.728 175.039 324.961 114.272 250 114.272C175.039 114.272 114.272 175.039 114.272 250Z" className={tailwindClass}/>
+            returner = <svg width={`100%`} height={`100%`} viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg" > <path d="M500 250C500 388.071 388.071 500 250 500C111.929 500 0 388.071 0 250C0 111.929 111.929 0 250 0C388.071 0 500 111.929 500 250ZM114.272 250C114.272 324.961 175.039 385.728 250 385.728C324.961 385.728 385.728 324.961 385.728 250C385.728 175.039 324.961 114.272 250 114.272C175.039 114.272 114.272 175.039 114.272 250Z" className={tailwindClass}/>
             <path d="M179 424H321V500H179V424Z" className={tailwindClass}/> </svg>
         break;
         case 'donut2':
-            returner = <svg width={100*size} height={100*size} viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+            returner = <svg width={`100%`} height={`100%`} viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M500 250C500 388.071 388.071 500 250 500C111.929 500 0 388.071 0 250C0 111.929 111.929 0 250 0C388.071 0 500 111.929 500 250ZM114.272 250C114.272 324.961 175.039 385.728 250 385.728C324.961 385.728 385.728 324.961 385.728 250C385.728 175.039 324.961 114.272 250 114.272C175.039 114.272 114.272 175.039 114.272 250Z" className={tailwindClass}/>
             <path d="M179 0H321V76H179V0Z" className={tailwindClass}/>
             <path d="M179 424H321V500H179V424Z" className={tailwindClass}/>
             </svg>
         break;
         case 'donut3':
-            returner = <svg width={100*size} height={100*size} viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+            returner = <svg width={`100%`} height={`100%`} viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M500 250C500 388.071 388.071 500 250 500C111.929 500 0 388.071 0 250C0 111.929 111.929 0 250 0C388.071 0 500 111.929 500 250ZM114.272 250C114.272 324.961 175.039 385.728 250 385.728C324.961 385.728 385.728 324.961 385.728 250C385.728 175.039 324.961 114.272 250 114.272C175.039 114.272 114.272 175.039 114.272 250Z" className={tailwindClass}/>
             <path d="M179 0H321V76H179V0Z" className={tailwindClass}/>
             </svg>
         break;
         case 'donut_link':
-            returner = <svg width={100*size} height={100*size} viewBox="0 0 142 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+            returner = <svg width={`100%`} height={`100%`} viewBox="0 0 142 500" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M0 0H142V500H0V0Z" className={tailwindClass}/>
             </svg>
         break;
