@@ -1,12 +1,35 @@
-import { useState, useRef } from "react"
+import { useState, useRef, createContext, useEffect } from "react"
 
 /// Components
 import Frettboard from "@/components/instruments/electric-guitar/Frettboard"
 
+/// utilities
+import { noteSimp, noteChecker, noteToNum } from "@/utilities/NoteSimp";
+import { resume } from "@/server/database/Connection";
+
+/// Context
+export const Gbl_stringTune = createContext([]);
+export const Gbl_noteSequence = createContext([]);
+export const Gbl_notePick = createContext([]);
 
 export default ()=>{
     // useState
     const [ tune, tuneSet ] = useState([0, 0, 0, 0, 0, 0]);
+    const [ noteSequence, noteSequenceSet ] = useState([
+        'A', 'A_sharp', 'B', 'C', 'C_sharp', 'D', 'D_sharp', 'E', 'F', 'F_sharp', 'G', 'G_sharp'
+    ])
+    const [ notePick, notePickSet ] = useState([]);
+    const [ notePattern, notePatternSet ] = useState('');
+
+    // useEffect
+    useEffect(()=>{
+        if(notePick.length>0)
+            notePatternSet( notePick.map(item=>noteSimp(noteSequence[item])) );
+        else
+            notePatternSet( '' );
+
+        console.log('here');
+    }, [notePick]);
     
     // handler
     const changeTune = (stringNum, data)=>{
@@ -18,14 +41,39 @@ export default ()=>{
             return [...prev];
         })
     }
+    const notePatternChange = ({target})=>{
+        notePatternSet(target.value);
+    }
+    const notePatternRevised = ()=>{
+        let value = (notePattern).split(/[,; \/\\\-+]/);
+        if(value.length < 1)
+            return false;
+
+        let newValue = value.reduce((acc, item)=>{
+            let result = noteSimp(item);
+            let tempAcc = [...acc];
+            if(result){
+                tempAcc[tempAcc.length] =result;
+            }
+            return tempAcc;
+        })
+        if(newValue.length < 1)
+            return false;
+
+        newValue = [... new Set(newValue)];
+        //notePatternSet(newValue.join(' '));
+
+        notePickSet(newValue.map(item=>noteToNum(item)));
+    }
     
     // class Preset
-    const inputCSS = 'rounded-sm focus:outline outline-2 bg-slate-600 tracking-tight font-light';
+    const inputCSS = 'rounded-sm focus:outline outline-2 outline-sky-500 bg-slate-600 tracking-tight font-light ';
     const inputLabelCSS = 'text-lg tracking-wide text-cyan-400 font-semibold;'
     const registerSelectCSS = 'w-7 h-7 rounded-full  flex justify-center items-center';
 
+
     return <>
-    <main className="w-full min-h-screen px-5 text-slate-200">
+    <main className="w-full min-h-screen px-5 text-slate-200 bg-gray-950">
         <section className="w-full py-20">
             <h1 className={`text-6xl text-slate-200 font-extralight pb-2 tracking-wide text-center`}>Electric Guitar</h1>
             <p className='text-lg font-light text-slate-300 tracking-wide text-center'>
@@ -60,7 +108,7 @@ export default ()=>{
             </div>
             <div>
                 <label className={`${inputLabelCSS}`}>Notes: </label>
-                <input className={`${inputCSS} p-1 px-2`} type="text"/>
+                <input className={`${inputCSS} p-1 px-2`} type="text" value={notePattern} onInput={notePatternChange} onBlur={notePatternRevised}/>
             </div>
             <div className="flex flex-row items-center gap-x-2">
                 <label className={`${inputLabelCSS}`}>Register:</label>
@@ -75,6 +123,9 @@ export default ()=>{
                 </div>
                 <div className={`${registerSelectCSS} bg-violet-700`}>
                     <span>5</span>
+                </div>
+                <div className={`${registerSelectCSS} bg-pink-700`}>
+                    <span>6</span>
                 </div>
             </div>
             <div>
@@ -99,12 +150,19 @@ export default ()=>{
                     </div>
                     {tune.map((a, key)=>
                         <div key={key}>
-                            <input type="number" min="-24" max="24" className={`2xl:w-14 w-10 ${inputCSS} 2xl:p-1 p-0 outline-sky-500 xl:text-base text-sm`} value={tune[key]} onInput={({target})=>changeTune(key, target)}/>
+                            <input type="number" min="-24" max="24" className={`2xl:w-14 w-10 ${inputCSS} 2xl:p-1 p-0 xl:text-base text-sm`} value={tune[key]} onInput={({target})=>changeTune(key, target)}/>
                         </div>
                     )}
                 </section>
                 <section className="flex-1 w-full">
-                    <Frettboard />
+                    <Gbl_notePick.Provider value={{notePick, notePickSet}}>
+                    <Gbl_noteSequence.Provider value={{noteSequence, noteSequenceSet}}>
+                    <Gbl_stringTune.Provider value={{tune, tuneSet}}>
+                        <Frettboard />
+                    </Gbl_stringTune.Provider>
+                    </Gbl_noteSequence.Provider>
+                    </Gbl_notePick.Provider>
+                    
                 </section>
             </div>
 

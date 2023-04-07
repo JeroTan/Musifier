@@ -1,6 +1,8 @@
-const mysql = require('mysql2');
+//const mysql = require('mysql2');
+import mysql from 'mysql2';
 
-const connection = mysql.createConnection({
+/*
+const connection = mysql.createConnection ({
   host: 'localhost',
   user: 'root',
   password: '',
@@ -16,3 +18,4 @@ connection.connect((err) => {
 });
 
 module.exports = connection;
+*/

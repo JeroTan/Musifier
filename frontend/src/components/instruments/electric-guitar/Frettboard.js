@@ -1,3 +1,5 @@
+import StringLayout from "./StringLayout"
+
 export default ()=>{
     return <>
     <svg width="100%" height="100%" viewBox="0 0 1231 230" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -99,6 +101,7 @@ export default ()=>{
         />
         </>}
         
+        
         {/**This is the board in fretboard */}
         <rect y="30" width="1231" height="200" rx="10" fill="url(#paint0_linear_3_4)" />
 
@@ -160,6 +163,14 @@ export default ()=>{
                 <stop offset="1" stopColor="#18181B" />
             </linearGradient>
         </defs>
+
+        {/**This is the tappable Notes */}
+
+        {/**This is the tappable Notes */}
+
+        {/**This is the noteLabel */}
+        <StringLayout />
+        {/**This is the noteLabel */}
     </svg>
     </>
 }

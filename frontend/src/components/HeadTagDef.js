@@ -1,6 +1,6 @@
 export default ()=>{
     return <>
-        <meta charset="UTF-8" />
+        <meta charSet="UTF-8" />
         <meta name="author" content="OnlyMeChanics" />
         <meta name="description" content="Musifier the way you played your fretboard." />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
