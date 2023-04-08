@@ -5,7 +5,7 @@ import NoteLabel from "./NoteLabel";
 import NoteButton from "./NoteButton";
 
 /// GBL
-import { Gbl_stringTune, Gbl_noteSequence, Gbl_notePick } from "@/pages/electric_guitar";
+import { Gbl_stringTune, Gbl_noteSequence, Gbl_notePick, Gbl_noteFlow, noteRearrange } from "@/pages/electric_guitar";
 import { isArray } from "tls";
 
 export default ()=>{
@@ -16,6 +16,7 @@ export default ()=>{
     const { tune, tuneSet } = useContext(Gbl_stringTune);
     const { noteSequence, noteSequenceSet } = useContext(Gbl_noteSequence);
     const { notePick, notePickSet } = useContext( Gbl_notePick );
+    const { noteFlow, noteFlowSet } = useContext(Gbl_noteFlow);
 
     // handler
     const noteClick = (currTone)=>{
@@ -24,10 +25,10 @@ export default ()=>{
         
         if(tonePickLoc > -1){
             tempNotePick.splice(tonePickLoc, 1);
-            notePickSet([...tempNotePick]);
+            notePickSet( noteRearrange([...tempNotePick], noteFlow) );
             
         }else{
-            notePickSet(prev=>[...prev, currTone])
+            notePickSet( prev=>noteRearrange([...prev, currTone], noteFlow) )
         }
         
     }

@@ -5,10 +5,10 @@ export const noteSimp = (note)=>{
         const flat = ['b','♭','flat','_b','_♭','_flat'];
         let accidental = '';
         if(result.input.length >1){
-            if( sharp.filter( item=>item==result[1] || item==result[2] || item==result[3] ) ){
+            if( sharp.some( item=>item==result[1] || item==result[2] || item==result[3] ) ){
                 accidental = '♯';
             }
-            else if( flat.filter( item=>item==result[1] || item==result[2] || item==result[3] ) ){
+            else if( flat.some( item=>item==result[1] || item==result[2] || item==result[3] ) ){
                 accidental = '♭';
             }
         }

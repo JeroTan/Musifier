@@ -2,7 +2,6 @@ import connection from '@/server/database/Connection.js';
 
 export default async function handler(req, res) {
     const { method } = req;
-    console.log(req);
 
     connection.query('SELECT * FROM account', (error, results) => {
         if (error) {
